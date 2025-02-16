@@ -10,16 +10,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
 
-    @PostMapping("/api/users")
+    @PostMapping
     public ResponseEntity<UserResDto> createUser(@Valid @RequestBody UserReqDto request){
         UserResDto user = userService.createUser(request);
         return ResponseEntity.ok(user);
     }
 
-    @GetMapping("/api/users/{email}")
+    @GetMapping("/{email}")
     public ResponseEntity<UserResDto> getUserByEmail(@PathVariable String email){
         UserResDto user = userService.getUserByEmail(email);
         return ResponseEntity.ok(user);
