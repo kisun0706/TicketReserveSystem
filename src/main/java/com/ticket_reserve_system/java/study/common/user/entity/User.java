@@ -1,4 +1,4 @@
-package com.ticket_reserve_system.java.study.domain.user.entity;
+package com.ticket_reserve_system.java.study.common.user.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

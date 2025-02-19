@@ -1,7 +1,7 @@
 package com.ticket_reserve_system.java.study.domain.user.controller;
 
-import com.ticket_reserve_system.java.study.domain.user.dto.UserReqDto;
-import com.ticket_reserve_system.java.study.domain.user.dto.UserResDto;
+import com.ticket_reserve_system.java.study.domain.user.dto.AddUserApiReqDto;
+import com.ticket_reserve_system.java.study.domain.user.dto.FindUserApiResDto;
 import com.ticket_reserve_system.java.study.domain.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,14 +15,12 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserResDto> createUser(@Valid @RequestBody UserReqDto request){
-        UserResDto user = userService.createUser(request);
-        return ResponseEntity.ok(user);
+    public ResponseEntity<FindUserApiResDto> createUser(@Valid @RequestBody AddUserApiReqDto request){
+        return ResponseEntity.ok(userService.createUserApi(request));
     }
 
     @GetMapping("/{email}")
-    public ResponseEntity<UserResDto> getUserByEmail(@PathVariable("email") String email){
-        UserResDto user = userService.getUserByEmail(email);
-        return ResponseEntity.ok(user);
+    public ResponseEntity<FindUserApiResDto> getUserByEmail(@PathVariable("email") String email){
+        return ResponseEntity.ok(userService.getUserByEmailApi(email));
     }
 }

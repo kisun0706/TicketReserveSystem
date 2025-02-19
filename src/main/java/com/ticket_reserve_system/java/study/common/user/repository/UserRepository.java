@@ -1,6 +1,6 @@
-package com.ticket_reserve_system.java.study.domain.user.repository;
+package com.ticket_reserve_system.java.study.common.user.repository;
 
-import com.ticket_reserve_system.java.study.domain.user.entity.User;
+import com.ticket_reserve_system.java.study.common.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
